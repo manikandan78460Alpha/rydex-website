@@ -3,7 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Rydex — Employee Transport Management",
-  description: "Modern employee cab management platform built for Indian SMEs. Replace WhatsApp groups and Excel sheets with one powerful dashboard.",
+  description: "Modern employee cab management platform built for Indian SMEs.",
+  icons: {
+    icon: "/logo-compass.png",
+  },
 };
 
 export default function RootLayout({
