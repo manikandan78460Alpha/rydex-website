@@ -60,7 +60,7 @@ export default function Hero() {
           fontWeight: 500,
           letterSpacing: "0.5px",
         }}>
-          Built for Indian SMEs
+          The Smarter Way to Move Your Workforce
         </span>
       </div>
 
