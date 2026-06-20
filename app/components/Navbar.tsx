@@ -26,8 +26,8 @@ export default function Navbar() {
         <Image
           src="/logo-hexagon.png"
           alt="Rydex Logo"
-          width={44}
-          height={44}
+          width={70}
+          height={70}
           style={{
             filter: "drop-shadow(0 0 8px rgba(0, 212, 170, 0.6))",
           }}
@@ -35,7 +35,7 @@ export default function Navbar() {
         <span style={{
           fontFamily: "Space Grotesk, sans-serif",
           fontWeight: 700,
-          fontSize: "20px",
+          fontSize: "24px",
           color: "#F0F4FF",
           letterSpacing: "0.5px",
         }}>
