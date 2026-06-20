@@ -1,7 +1,9 @@
+import Navbar from "./components/Navbar";
+
 export default function Home() {
   return (
     <main>
-      <h1>Rydex is coming.</h1>
+      <Navbar />
     </main>
   );
 }
