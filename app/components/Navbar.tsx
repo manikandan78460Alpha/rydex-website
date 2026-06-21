@@ -14,8 +14,7 @@ export default function Navbar() {
   ];
 
   return (
-    <div style={{
-      position: "fixed",
+    <div style={{position: "fixed",
       top: 0,
       left: 0,
       right: 0,
