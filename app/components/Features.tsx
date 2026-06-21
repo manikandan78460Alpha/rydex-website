@@ -20,8 +20,8 @@ function TiltCard({ children }: { children: React.ReactNode }) {
     const rect = ref.current.getBoundingClientRect();
     const offsetX = e.clientX - rect.left - rect.width / 2;
     const offsetY = e.clientY - rect.top - rect.height / 2;
-    rotateX.set((offsetY / (rect.height / 2)) * -10);
-    rotateY.set((offsetX / (rect.width / 2)) * 10);
+    rotateX.set((offsetY / (rect.height / 2)) * -5);
+    rotateY.set((offsetX / (rect.width / 2)) * 5);
   }
 
   function handleMouseEnter() {
