@@ -1,5 +1,6 @@
 "use client";
 import ScrollReveal from "./ScrollReveal";
+import BorderGlow from "./BorderGlow";
 
 const steps = [
   {
@@ -7,18 +8,21 @@ const steps = [
     title: "We Onboard You Personally",
     desc: "The Rydex team sets up your company profile, offices, zones, vendors, and fleet. We hand you the keys with full learning materials and a walkthrough — your Admin takes it from there.",
     color: "#FF6B2B",
+    rgb: "255 107 43",
   },
   {
     number: "02",
     title: "Build Your Roster",
     desc: "Import employees via Excel or add manually. Assign shifts, pickup zones, and home locations. Rydex auto-generates routes.",
     color: "#00D4AA",
+    rgb: "0 212 170",
   },
   {
     number: "03",
     title: "Run Your First Trip",
     desc: "Drivers get assignments. Employees get their PIN. Ops supervisors track everything live. Your WhatsApp group finally goes quiet.",
     color: "#FF6B2B",
+    rgb: "255 107 43",
   },
 ];
 
@@ -77,87 +81,95 @@ export default function HowItWorks() {
         display: "grid",
         gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
         gap: "32px",
-        position: "relative",
       }}>
         {steps.map((step, i) => (
           <ScrollReveal key={step.number} delay={i * 0.15} direction="up">
-            <div style={{
-              background: "#1A2744",
-              borderRadius: "20px",
-              padding: "40px 32px",
-              border: `1px solid rgba(255,255,255,0.06)`,
-              position: "relative",
-              overflow: "hidden",
-              height: "100%",
-            }}>
-
-              {/* Big background number */}
+            <BorderGlow
+              backgroundColor="#1A2744"
+              borderRadius={20}
+              glowColor={step.rgb}
+              colors={step.color === "#FF6B2B"
+                ? ["#FF6B2B", "#00D4AA", "#0A0F1E"]
+                : ["#00D4AA", "#FF6B2B", "#0A0F1E"]
+              }
+              glowIntensity={0.8}
+              fillOpacity={0.15}
+            >
               <div style={{
-                position: "absolute",
-                top: "-20px",
-                right: "20px",
-                fontSize: "120px",
-                fontWeight: 800,
-                fontFamily: "Space Grotesk, sans-serif",
-                color: step.color,
-                opacity: 0.06,
-                lineHeight: 1,
-                userSelect: "none",
+                padding: "40px 32px",
+                position: "relative",
+                overflow: "hidden",
+                height: "100%",
               }}>
-                {step.number}
-              </div>
 
-              {/* Step number badge */}
-              <div style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "48px",
-                height: "48px",
-                borderRadius: "12px",
-                background: `rgba(${step.color === "#FF6B2B" ? "255,107,43" : "0,212,170"}, 0.1)`,
-                border: `1px solid ${step.color}40`,
-                marginBottom: "24px",
-              }}>
-                <span style={{
-                  fontFamily: "JetBrains Mono, monospace",
-                  fontSize: "16px",
-                  fontWeight: 600,
+                {/* Big background number */}
+                <div style={{
+                  position: "absolute",
+                  top: "-20px",
+                  right: "20px",
+                  fontSize: "120px",
+                  fontWeight: 800,
+                  fontFamily: "Space Grotesk, sans-serif",
                   color: step.color,
+                  opacity: 0.06,
+                  lineHeight: 1,
+                  userSelect: "none",
                 }}>
                   {step.number}
-                </span>
+                </div>
+
+                {/* Step number badge */}
+                <div style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: "48px",
+                  height: "48px",
+                  borderRadius: "12px",
+                  background: `rgba(${step.rgb}, 0.1)`,
+                  border: `1px solid ${step.color}40`,
+                  marginBottom: "24px",
+                }}>
+                  <span style={{
+                    fontFamily: "JetBrains Mono, monospace",
+                    fontSize: "16px",
+                    fontWeight: 600,
+                    color: step.color,
+                  }}>
+                    {step.number}
+                  </span>
+                </div>
+
+                <h3 style={{
+                  fontFamily: "Space Grotesk, sans-serif",
+                  fontSize: "22px",
+                  fontWeight: 700,
+                  color: "#F0F4FF",
+                  marginBottom: "16px",
+                }}>
+                  {step.title}
+                </h3>
+
+                <p style={{
+                  color: "#8892AA",
+                  fontSize: "15px",
+                  lineHeight: 1.8,
+                }}>
+                  {step.desc}
+                </p>
+
+                {/* Bottom accent line */}
+                <div style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "3px",
+                  background: `linear-gradient(90deg, ${step.color}, transparent)`,
+                }} />
+
               </div>
-
-              <h3 style={{
-                fontFamily: "Space Grotesk, sans-serif",
-                fontSize: "22px",
-                fontWeight: 700,
-                color: "#F0F4FF",
-                marginBottom: "16px",
-              }}>
-                {step.title}
-              </h3>
-
-              <p style={{
-                color: "#8892AA",
-                fontSize: "15px",
-                lineHeight: 1.8,
-              }}>
-                {step.desc}
-              </p>
-
-              {/* Bottom accent line */}
-              <div style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: "3px",
-                background: `linear-gradient(90deg, ${step.color}, transparent)`,
-              }} />
-
-            </div>
+            </BorderGlow>
           </ScrollReveal>
         ))}
       </div>
