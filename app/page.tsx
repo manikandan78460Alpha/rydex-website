@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Problem from "./components/Problem";
 import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
+import Comparison from "./components/Comparison";
 import PageBackground from "./components/PageBackground";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <Problem />
         <Features />
         <HowItWorks />
+        <Comparison />
       </main>
     </>
   );
