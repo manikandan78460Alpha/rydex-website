@@ -1,5 +1,58 @@
 "use client";
+import { useRef } from "react";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+
+const springValues = {
+  damping: 30,
+  stiffness: 100,
+  mass: 2,
+};
+
+function TiltCard({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const rotateX = useSpring(useMotionValue(0), springValues);
+  const rotateY = useSpring(useMotionValue(0), springValues);
+  const scale = useSpring(1, springValues);
+
+  function handleMouse(e: React.MouseEvent<HTMLDivElement>) {
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left - rect.width / 2;
+    const offsetY = e.clientY - rect.top - rect.height / 2;
+    rotateX.set((offsetY / (rect.height / 2)) * -10);
+    rotateY.set((offsetX / (rect.width / 2)) * 10);
+  }
+
+  function handleMouseEnter() {
+    scale.set(1.03);
+  }
+
+  function handleMouseLeave() {
+    rotateX.set(0);
+    rotateY.set(0);
+    scale.set(1);
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      onMouseMove={handleMouse}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        scale,
+        transformStyle: "preserve-3d",
+        perspective: 800,
+        height: "100%",
+      }}
+    >
+      {children}
+    </motion.div>
+  );
+}
 
 const icons = {
   roster: (
@@ -173,72 +226,67 @@ export default function Features() {
         }}>
           {features.map((feature, i) => (
             <ScrollReveal key={feature.title} delay={i * 0.08} direction="up">
-              <div style={{
-                background: "#1A2744",
-                borderRadius: "16px",
-                padding: "32px",
-                border: "1px solid rgba(240, 244, 255, 0.06)",
-                height: "100%",
-                transition: "border-color 0.2s, transform 0.2s",
-                cursor: "default",
-              }}
-              onMouseEnter={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(0, 212, 170, 0.3)";
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-              }}
-              onMouseLeave={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(240, 244, 255, 0.06)";
-                (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-              }}
-              >
-                {/* Tag */}
+              <TiltCard>
                 <div style={{
-                  display: "inline-block",
-                  fontSize: "11px",
-                  fontFamily: "JetBrains Mono, monospace",
-                  color: "#00D4AA",
-                  background: "rgba(0, 212, 170, 0.08)",
-                  border: "1px solid rgba(0, 212, 170, 0.2)",
-                  borderRadius: "100px",
-                  padding: "3px 10px",
-                  marginBottom: "20px",
-                  letterSpacing: "0.5px",
+                  background: "#1A2744",
+                  borderRadius: "16px",
+                  padding: "32px",
+                  border: "1px solid rgba(240, 244, 255, 0.06)",
+                  height: "100%",
+                  cursor: "default",
+                  transformStyle: "preserve-3d",
                 }}>
-                  {feature.tag}
-                </div>
+                  {/* Tag */}
+                  <div style={{
+                    display: "inline-block",
+                    fontSize: "11px",
+                    fontFamily: "JetBrains Mono, monospace",
+                    color: "#00D4AA",
+                    background: "rgba(0, 212, 170, 0.08)",
+                    border: "1px solid rgba(0, 212, 170, 0.2)",
+                    borderRadius: "100px",
+                    padding: "3px 10px",
+                    marginBottom: "20px",
+                    letterSpacing: "0.5px",
+                  }}>
+                    {feature.tag}
+                  </div>
 
-                {/* Icon */}
-                <div style={{
-                  width: "56px",
-                  height: "56px",
-                  borderRadius: "14px",
-                  background: "rgba(0, 212, 170, 0.08)",
-                  border: "1px solid rgba(0, 212, 170, 0.15)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginBottom: "20px",
-                }}>
-                  {feature.icon}
-                </div>
+                  {/* Icon */}
+                  <div style={{
+                    width: "56px",
+                    height: "56px",
+                    borderRadius: "14px",
+                    background: "rgba(0, 212, 170, 0.08)",
+                    border: "1px solid rgba(0, 212, 170, 0.15)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "20px",
+                    transform: "translateZ(20px)",
+                  }}>
+                    {feature.icon}
+                  </div>
 
-                <h3 style={{
-                  fontFamily: "Space Grotesk, sans-serif",
-                  fontSize: "18px",
-                  fontWeight: 600,
-                  marginBottom: "12px",
-                  color: "#F0F4FF",
-                }}>
-                  {feature.title}
-                </h3>
-                <p style={{
-                  color: "#8892AA",
-                  fontSize: "14px",
-                  lineHeight: 1.7,
-                }}>
-                  {feature.desc}
-                </p>
-              </div>
+                  <h3 style={{
+                    fontFamily: "Space Grotesk, sans-serif",
+                    fontSize: "18px",
+                    fontWeight: 600,
+                    marginBottom: "12px",
+                    color: "#F0F4FF",
+                    transform: "translateZ(15px)",
+                  }}>
+                    {feature.title}
+                  </h3>
+                  <p style={{
+                    color: "#8892AA",
+                    fontSize: "14px",
+                    lineHeight: 1.7,
+                  }}>
+                    {feature.desc}
+                  </p>
+                </div>
+              </TiltCard>
             </ScrollReveal>
           ))}
         </div>
