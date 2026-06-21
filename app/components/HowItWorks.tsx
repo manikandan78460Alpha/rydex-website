@@ -67,7 +67,7 @@ export default function HowItWorks() {
             margin: "16px auto 0",
             lineHeight: 1.7,
           }}>
-            No lengthy implementation. No consultants. No training sessions. Just three steps and you're live.
+            No lengthy implementation. No consultants. No training sessions. Just three steps and you&apos;re live.
           </p>
         </div>
       </ScrollReveal>
