@@ -48,12 +48,12 @@ export default function Hero() {
             width: "6px",
             height: "6px",
             borderRadius: "50%",
-            background: "#00D4AA",
+            background: "##fff",
             boxShadow: "0 0 8px #00D4AA",
           }} />
           <span style={{
             fontSize: "13px",
-            color: "#00D4AA",
+            color: "##fff",
             fontFamily: "JetBrains Mono, monospace",
             fontWeight: 500,
             letterSpacing: "0.5px",
@@ -140,7 +140,7 @@ export default function Hero() {
           flexWrap: "wrap",
         }}>
           {[
-            { number: "6", label: "Role Levels" },
+            { number: "5", label: "Role Levels" },
             { number: "20+", label: "Modules Built" },
             { number: "100%", label: "Web Based" },
             { number: "0", label: "WhatsApp Groups Needed" },
