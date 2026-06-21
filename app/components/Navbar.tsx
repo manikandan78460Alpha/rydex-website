@@ -5,6 +5,14 @@ import { useState } from "react";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const navLinks = [
+    { label: "Features", href: "#features" },
+    { label: "How It Works", href: "#how-it-works" },
+    { label: "Why Rydex", href: "#why-rydex" },
+    { label: "Comparison", href: "#comparison" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
     <nav style={{
       position: "fixed",
@@ -48,47 +56,47 @@ export default function Navbar() {
         display: "flex",
         gap: "36px",
         alignItems: "center",
-      }} className="desktop-nav">
-        {[
-  { label: "Features", href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Why Rydex", href: "#why-rydex" },
-  { label: "Comparison", href: "#comparison" },
-  { label: "Contact", href: "#contact" },
-].map((item) => (
-  <a key={item.label} href={item.href}
-            color: "#8892AA",
-            textDecoration: "none",
-            fontSize: "14px",
-            fontWeight: 500,
-            transition: "color 0.2s",
-          }}
-          onMouseEnter={e => (e.currentTarget.style.color = "#00D4AA")}
-          onMouseLeave={e => (e.currentTarget.style.color = "#8892AA")}
+      }}>
+        {navLinks.map((item) => (
+          
+            key={item.label}
+            href={item.href}
+            style={{
+              color: "#8892AA",
+              textDecoration: "none",
+              fontSize: "14px",
+              fontWeight: 500,
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#00D4AA")}
+            onMouseLeave={e => (e.currentTarget.style.color = "#8892AA")}
           >
             {item.label}
-            </a>
+          </a>
         ))}
       </div>
 
       {/* CTA Button */}
-      <a href="#contact" style={{
-        background: "linear-gradient(135deg, #FF6B2B, #ff8c57)",
-        color: "#fff",
-        padding: "10px 24px",
-        borderRadius: "8px",
-        textDecoration: "none",
-        fontWeight: 600,
-        fontSize: "14px",
-        fontFamily: "Space Grotesk, sans-serif",
-        boxShadow: "0 0 20px rgba(255, 107, 43, 0.3)",
-        transition: "box-shadow 0.2s",
-      }}
-      onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 30px rgba(255, 107, 43, 0.6)")}
-      onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 0 20px rgba(255, 107, 43, 0.3)")}
+      
+        href="#contact"
+        style={{
+          background: "linear-gradient(135deg, #FF6B2B, #ff8c57)",
+          color: "#fff",
+          padding: "10px 24px",
+          borderRadius: "8px",
+          textDecoration: "none",
+          fontWeight: 600,
+          fontSize: "14px",
+          fontFamily: "Space Grotesk, sans-serif",
+          boxShadow: "0 0 20px rgba(255, 107, 43, 0.3)",
+          transition: "box-shadow 0.2s",
+        }}
+        onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 0 30px rgba(255, 107, 43, 0.6)")}
+        onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 0 20px rgba(255, 107, 43, 0.3)")}
       >
         Request Access
       </a>
+
     </nav>
   );
 }
