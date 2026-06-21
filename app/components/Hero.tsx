@@ -1,15 +1,19 @@
 "use client";
+import { useRef } from "react";
 import Aurora from "./Aurora";
 import CountUp from "./CountUp";
+import VariableProximity from "./VariableProximity";
 
 const stats = [
-  { number: 5, suffix: "", label: "Role Levels", decimal: 0 },
-  { number: 20, suffix: "+", label: "Modules Built", decimal: 0 },
-  { number: 100, suffix: "%", label: "Web Based", decimal: 0 },
-  { number: 60, suffix: "%", label: "Lower Cost vs Traditional Platforms", decimal: 0 },
+  { number: 5, suffix: "", label: "Role Levels" },
+  { number: 20, suffix: "+", label: "Modules Built" },
+  { number: 100, suffix: "%", label: "Web Based" },
+  { number: 60, suffix: "%", label: "Lower Cost vs Traditional Platforms" },
 ];
 
 export default function Hero() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   return (
     <section style={{
       minHeight: "100vh",
@@ -39,7 +43,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
+      <div ref={containerRef} style={{ position: "relative", zIndex: 1, width: "100%" }}>
 
         {/* Eyebrow Tag */}
         <div style={{
@@ -70,23 +74,38 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Main Headline */}
+        {/* Main Headline with Variable Proximity */}
         <h1 style={{
           fontSize: "clamp(36px, 6vw, 80px)",
           fontWeight: 700,
           lineHeight: 1.1,
           maxWidth: "900px",
           margin: "0 auto 24px",
-          fontFamily: "Space Grotesk, sans-serif",
+          fontFamily: "Roboto Flex, sans-serif",
         }}>
-          Employee Transport,{" "}
-          <span style={{
-            background: "linear-gradient(135deg, #FF6B2B, #00D4AA)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}>
-            Finally Solved.
-          </span>
+          <VariableProximity
+            label="Employee Transport,"
+            containerRef={containerRef}
+            fromFontVariationSettings="'wght' 700, 'wdth' 100"
+            toFontVariationSettings="'wght' 900, 'wdth' 125"
+            radius={200}
+            falloff="gaussian"
+            style={{ color: "#F0F4FF" }}
+          />
+          {" "}
+          <VariableProximity
+            label="Finally Solved."
+            containerRef={containerRef}
+            fromFontVariationSettings="'wght' 700, 'wdth' 100"
+            toFontVariationSettings="'wght' 900, 'wdth' 125"
+            radius={200}
+            falloff="gaussian"
+            style={{
+              background: "linear-gradient(135deg, #FF6B2B, #00D4AA)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+          />
         </h1>
 
         {/* Subtext */}
