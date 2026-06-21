@@ -1,5 +1,13 @@
 "use client";
 import Aurora from "./Aurora";
+import CountUp from "./CountUp";
+
+const stats = [
+  { number: 5, suffix: "", label: "Role Levels", decimal: 0 },
+  { number: 20, suffix: "+", label: "Modules Built", decimal: 0 },
+  { number: 100, suffix: "%", label: "Web Based", decimal: 0 },
+  { number: 60, suffix: "%", label: "Lower Cost vs Traditional Platforms", decimal: 0 },
+];
 
 export default function Hero() {
   return (
@@ -30,7 +38,7 @@ export default function Hero() {
         />
       </div>
 
-      {/* Content sits above Aurora */}
+      {/* Content */}
       <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
 
         {/* Eyebrow Tag */}
@@ -87,7 +95,6 @@ export default function Hero() {
           color: "#8892AA",
           maxWidth: "620px",
           lineHeight: 1.7,
-          marginBottom: "48px",
           margin: "0 auto 48px",
         }}>
           Stop managing employee cabs on WhatsApp groups and Excel sheets.
@@ -116,7 +123,6 @@ export default function Hero() {
           }}>
             Request Early Access
           </a>
-
           <a href="#features" style={{
             background: "transparent",
             color: "#F0F4FF",
@@ -132,32 +138,52 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Stats Row */}
+        {/* Stats Row with CountUp */}
         <div style={{
           display: "flex",
-          gap: "48px",
+          gap: "0",
           justifyContent: "center",
           flexWrap: "wrap",
+          background: "rgba(255,255,255,0.03)",
+          border: "1px solid rgba(255,255,255,0.08)",
+          borderRadius: "20px",
+          padding: "32px 48px",
+          maxWidth: "900px",
+          margin: "0 auto",
+          backdropFilter: "blur(10px)",
         }}>
-          {[
-            { number: "5", label: "Role Levels" },
-            { number: "20+", label: "Modules Built" },
-            { number: "100%", label: "Web Based" },
-            { number: "0", label: "WhatsApp Groups Needed" },
-          ].map((stat) => (
-            <div key={stat.label} style={{ textAlign: "center" }}>
+          {stats.map((stat, i) => (
+            <div key={stat.label} style={{
+              textAlign: "center",
+              padding: "0 40px",
+              borderRight: i < stats.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
+              flex: "1",
+              minWidth: "160px",
+            }}>
               <div style={{
-                fontSize: "36px",
-                fontWeight: 700,
+                fontSize: "42px",
+                fontWeight: 800,
                 fontFamily: "Space Grotesk, sans-serif",
-                color: "#00D4AA",
+                color: i % 2 === 0 ? "#00D4AA" : "#FF6B2B",
+                lineHeight: 1,
+                marginBottom: "8px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "2px",
               }}>
-                {stat.number}
+                <CountUp
+                  to={stat.number}
+                  duration={2.5}
+                  delay={i * 0.2}
+                />
+                <span>{stat.suffix}</span>
               </div>
               <div style={{
                 fontSize: "13px",
                 color: "#8892AA",
-                marginTop: "4px",
+                fontFamily: "Inter, sans-serif",
+                lineHeight: 1.4,
               }}>
                 {stat.label}
               </div>
