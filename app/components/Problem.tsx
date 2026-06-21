@@ -85,11 +85,11 @@ export default function Problem() {
   ];
 
   return (
-    <section style={{
-      padding: "100px 24px",
-      maxWidth: "1200px",
-      margin: "0 auto",
-    }}>
+   <section id="why-rydex" style={{
+  padding: "100px 24px",
+  maxWidth: "1200px",
+  margin: "0 auto",
+}}>
 
       {/* Section Header */}
       <div style={{ textAlign: "center", marginBottom: "64px" }}>
