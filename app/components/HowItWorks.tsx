@@ -4,8 +4,8 @@ import ScrollReveal from "./ScrollReveal";
 const steps = [
   {
     number: "01",
-    title: "Onboard Your Company",
-    desc: "Super Admin sets up your company profile, offices, and zones. Add your vendors, fleet, and drivers. Takes less than a day.",
+    title: "We Onboard You Personally",
+    desc: "The Rydex team sets up your company profile, offices, zones, vendors, and fleet. We hand you the keys with full learning materials and a walkthrough — your Admin takes it from there.",
     color: "#FF6B2B",
   },
   {
