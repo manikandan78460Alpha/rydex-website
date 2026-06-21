@@ -25,4 +25,8 @@
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
   }
+  ,
+"devDependencies": {
+  "@types/three": "^0.160.0"
+}
 }
