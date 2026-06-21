@@ -8,7 +8,7 @@ export default function PageBackground() {
       inset: 0,
       zIndex: 0,
       pointerEvents: "none",
-      opacity: 0.1,
+      opacity: 0.2,
     }}>
       <FloatingLines
         linesGradient={["#00D4AA", "#FF6B2B", "#00D4AA"]}
