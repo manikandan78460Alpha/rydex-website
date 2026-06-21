@@ -14,7 +14,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav style={{
+    <div style={{
       position: "fixed",
       top: 0,
       left: 0,
@@ -97,6 +97,6 @@ export default function Navbar() {
         Request Access
       </a>
 
-    </nav>
+     </div>
   );
 }
