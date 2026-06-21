@@ -2,6 +2,7 @@
 import { useRef } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import ScrollReveal from "./ScrollReveal";
+import BorderGlow from "./BorderGlow";
 
 const springValues = {
   damping: 30,
@@ -227,14 +228,20 @@ export default function Features() {
           {features.map((feature, i) => (
             <ScrollReveal key={feature.title} delay={i * 0.08} direction="up">
               <TiltCard>
-                <div style={{
-                  background: "#1A2744",
-                  borderRadius: "16px",
-                  padding: "32px",
-                  border: "1px solid rgba(240, 244, 255, 0.06)",
-                  height: "100%",
-                  cursor: "default",
-                  transformStyle: "preserve-3d",
+  <BorderGlow
+    backgroundColor="#1A2744"
+    borderRadius={16}
+    glowColor="162 212 170"
+    colors={["#00D4AA", "#FF6B2B", "#0A0F1E"]}
+    glowIntensity={0.8}
+    fillOpacity={0.15}
+  >
+  <div style={{
+    padding: "32px",
+    height: "100%",
+    cursor: "default",
+    transformStyle: "preserve-3d",
+  }}>
                 }}>
                   {/* Tag */}
                   <div style={{
@@ -286,7 +293,8 @@ export default function Features() {
                     {feature.desc}
                   </p>
                 </div>
-              </TiltCard>
+      </BorderGlow>
+      </TiltCard>
             </ScrollReveal>
           ))}
         </div>
