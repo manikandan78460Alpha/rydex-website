@@ -97,6 +97,6 @@ export default function Navbar() {
         Request Access
       </a>
 
-     </div>
+    </div>
   );
 }
