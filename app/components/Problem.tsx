@@ -137,9 +137,9 @@ export default function Problem() {
           color: "#F0F4FF",
           lineHeight: 1.6,
         }}>
-          There are over{" "}
-          <span style={{ color: "#FF6B2B" }}>2 million SMEs in India</span>{" "}
-          managing employee transport this way right now.{" "}
+         There are thousands of{" "}
+          <span style={{ color: "#FF6B2B" }}>corporates and growing enterprises across India</span>{" "}
+          still managing employee transport this way right now.{" "}
           <span style={{ color: "#00D4AA" }}>Rydex fixes this.</span>
         </p>
       </div>
