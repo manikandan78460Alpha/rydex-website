@@ -1,5 +1,5 @@
 import { forwardRef, useMemo, useRef, useEffect, MutableRefObject, RefObject, HTMLAttributes } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import './VariableProximity.css';
 
 type Callback = () => void;
