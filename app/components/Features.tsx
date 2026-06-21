@@ -150,9 +150,9 @@ const features = [
   },
   {
     icon: icons.roles,
-    title: "6-Level Role Hierarchy",
-    desc: "Super Admin, Admin, Scheduler, Ops Supervisor, Driver, and Employee. Every role sees exactly what they need and nothing more.",
-    tag: "Access",
+   title: "5-Level Role Hierarchy",
+desc: "Admin, Scheduler, Ops Supervisor, Driver, and Employee. Every role sees exactly what they need and nothing more — zero confusion, zero overlap.",
+tag: "Access",
   },
   {
     icon: icons.export,
