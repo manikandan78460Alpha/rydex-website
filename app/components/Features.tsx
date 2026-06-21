@@ -62,9 +62,6 @@ const icons = {
       <line x1="16" y1="2" x2="16" y2="6" />
       <line x1="8" y1="2" x2="8" y2="6" />
       <line x1="3" y1="10" x2="21" y2="10" />
-      <line x1="8" y1="14" x2="8" y2="14" strokeWidth="2" />
-      <line x1="12" y1="14" x2="12" y2="14" strokeWidth="2" />
-      <line x1="16" y1="14" x2="16" y2="14" strokeWidth="2" />
     </svg>
   ),
   map: (
@@ -79,7 +76,6 @@ const icons = {
       <rect x="7" y="2" width="10" height="14" rx="2" />
       <path d="M12 16v6" />
       <line x1="9" y1="7" x2="15" y2="7" />
-      <line x1="9" y1="11" x2="13" y2="11" />
     </svg>
   ),
   shield: (
@@ -151,9 +147,9 @@ const features = [
   },
   {
     icon: icons.roles,
-   title: "5-Level Role Hierarchy",
-desc: "Admin, Scheduler, Ops Supervisor, Driver, and Employee. Every role sees exactly what they need and nothing more — zero confusion, zero overlap.",
-tag: "Access",
+    title: "5-Level Role Hierarchy",
+    desc: "Admin, Scheduler, Ops Supervisor, Driver, and Employee. Every role sees exactly what they need and nothing more.",
+    tag: "Access",
   },
   {
     icon: icons.export,
@@ -177,7 +173,6 @@ export default function Features() {
     }}>
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
-        {/* Header */}
         <ScrollReveal>
           <div style={{ textAlign: "center", marginBottom: "64px" }}>
             <span style={{
@@ -219,7 +214,6 @@ export default function Features() {
           </div>
         </ScrollReveal>
 
-        {/* Features Grid */}
         <div style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
@@ -228,73 +222,66 @@ export default function Features() {
           {features.map((feature, i) => (
             <ScrollReveal key={feature.title} delay={i * 0.08} direction="up">
               <TiltCard>
-  <BorderGlow
-    backgroundColor="#1A2744"
-    borderRadius={16}
-    glowColor="162 212 170"
-    colors={["#00D4AA", "#FF6B2B", "#0A0F1E"]}
-    glowIntensity={0.8}
-    fillOpacity={0.15}
-  >
-  <div style={{
-    padding: "32px",
-    height: "100%",
-    cursor: "default",
-    transformStyle: "preserve-3d",
-  }}>
-                }}>
-                  {/* Tag */}
+                <BorderGlow
+                  backgroundColor="#1A2744"
+                  borderRadius={16}
+                  glowColor="162 212 170"
+                  colors={["#00D4AA", "#FF6B2B", "#0A0F1E"]}
+                  glowIntensity={0.8}
+                  fillOpacity={0.15}
+                >
                   <div style={{
-                    display: "inline-block",
-                    fontSize: "11px",
-                    fontFamily: "JetBrains Mono, monospace",
-                    color: "#00D4AA",
-                    background: "rgba(0, 212, 170, 0.08)",
-                    border: "1px solid rgba(0, 212, 170, 0.2)",
-                    borderRadius: "100px",
-                    padding: "3px 10px",
-                    marginBottom: "20px",
-                    letterSpacing: "0.5px",
+                    padding: "32px",
+                    cursor: "default",
+                    transformStyle: "preserve-3d",
                   }}>
-                    {feature.tag}
+                    <div style={{
+                      display: "inline-block",
+                      fontSize: "11px",
+                      fontFamily: "JetBrains Mono, monospace",
+                      color: "#00D4AA",
+                      background: "rgba(0, 212, 170, 0.08)",
+                      border: "1px solid rgba(0, 212, 170, 0.2)",
+                      borderRadius: "100px",
+                      padding: "3px 10px",
+                      marginBottom: "20px",
+                      letterSpacing: "0.5px",
+                    }}>
+                      {feature.tag}
+                    </div>
+                    <div style={{
+                      width: "56px",
+                      height: "56px",
+                      borderRadius: "14px",
+                      background: "rgba(0, 212, 170, 0.08)",
+                      border: "1px solid rgba(0, 212, 170, 0.15)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      marginBottom: "20px",
+                      transform: "translateZ(20px)",
+                    }}>
+                      {feature.icon}
+                    </div>
+                    <h3 style={{
+                      fontFamily: "Space Grotesk, sans-serif",
+                      fontSize: "18px",
+                      fontWeight: 600,
+                      marginBottom: "12px",
+                      color: "#F0F4FF",
+                    }}>
+                      {feature.title}
+                    </h3>
+                    <p style={{
+                      color: "#8892AA",
+                      fontSize: "14px",
+                      lineHeight: 1.7,
+                    }}>
+                      {feature.desc}
+                    </p>
                   </div>
-
-                  {/* Icon */}
-                  <div style={{
-                    width: "56px",
-                    height: "56px",
-                    borderRadius: "14px",
-                    background: "rgba(0, 212, 170, 0.08)",
-                    border: "1px solid rgba(0, 212, 170, 0.15)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: "20px",
-                    transform: "translateZ(20px)",
-                  }}>
-                    {feature.icon}
-                  </div>
-
-                  <h3 style={{
-                    fontFamily: "Space Grotesk, sans-serif",
-                    fontSize: "18px",
-                    fontWeight: 600,
-                    marginBottom: "12px",
-                    color: "#F0F4FF",
-                    transform: "translateZ(15px)",
-                  }}>
-                    {feature.title}
-                  </h3>
-                  <p style={{
-                    color: "#8892AA",
-                    fontSize: "14px",
-                    lineHeight: 1.7,
-                  }}>
-                    {feature.desc}
-                  </p>
-                </div>
-      </BorderGlow>
-      </TiltCard>
+                </BorderGlow>
+              </TiltCard>
             </ScrollReveal>
           ))}
         </div>
