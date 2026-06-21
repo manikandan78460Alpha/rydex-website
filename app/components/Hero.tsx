@@ -48,12 +48,12 @@ export default function Hero() {
             width: "6px",
             height: "6px",
             borderRadius: "50%",
-            background: "##fff",
+            background: "#fff",
             boxShadow: "0 0 8px #00D4AA",
           }} />
           <span style={{
             fontSize: "13px",
-            color: "##fff",
+            color: "#fff",
             fontFamily: "JetBrains Mono, monospace",
             fontWeight: 500,
             letterSpacing: "0.5px",
