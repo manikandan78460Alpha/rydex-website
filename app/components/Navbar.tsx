@@ -49,8 +49,14 @@ export default function Navbar() {
         gap: "36px",
         alignItems: "center",
       }} className="desktop-nav">
-        {["Features", "How It Works", "Roles", "Why Rydex"].map((item) => (
-          <a key={item} href={`#${item.toLowerCase().replace(/ /g, "-")}`} style={{
+        {[
+  { label: "Features", href: "#features" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Why Rydex", href: "#why-rydex" },
+  { label: "Comparison", href: "#comparison" },
+  { label: "Contact", href: "#contact" },
+].map((item) => (
+  <a key={item.label} href={item.href}
             color: "#8892AA",
             textDecoration: "none",
             fontSize: "14px",
@@ -60,8 +66,8 @@ export default function Navbar() {
           onMouseEnter={e => (e.currentTarget.style.color = "#00D4AA")}
           onMouseLeave={e => (e.currentTarget.style.color = "#8892AA")}
           >
-            {item}
-          </a>
+            {item.label}
+            </a>
         ))}
       </div>
 
