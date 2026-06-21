@@ -5,6 +5,7 @@ import Problem from "./components/Problem";
 import Features from "./components/Features";
 import HowItWorks from "./components/HowItWorks";
 import Comparison from "./components/Comparison";
+import Contact from "./components/Contact";
 import PageBackground from "./components/PageBackground";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Features />
         <HowItWorks />
         <Comparison />
+        <Contact />
       </main>
     </>
   );
