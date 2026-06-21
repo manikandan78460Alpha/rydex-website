@@ -1,4 +1,5 @@
 "use client";
+import BorderGlow from "./BorderGlow";
 
 const icons = {
   whatsapp: (
@@ -131,23 +132,19 @@ export default function Problem() {
         gap: "24px",
       }}>
         {pains.map((pain) => (
-          <div key={pain.title} style={{
-            background: "#1A2744",
-            borderRadius: "16px",
-            padding: "32px",
-            border: "1px solid rgba(240, 244, 255, 0.06)",
-            transition: "border-color 0.2s, transform 0.2s",
-            cursor: "default",
-          }}
-          onMouseEnter={e => {
-            (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(255, 107, 43, 0.3)";
-            (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-          }}
-          onMouseLeave={e => {
-            (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(240, 244, 255, 0.06)";
-            (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-          }}
-          >
+          <BorderGlow
+  key={pain.title}
+  backgroundColor="#1A2744"
+  borderRadius={16}
+  glowColor="255 107 43"
+  colors={["#FF6B2B", "#00D4AA", "#0A0F1E"]}
+  glowIntensity={0.8}
+  fillOpacity={0.15}
+>
+<div style={{
+  padding: "32px",
+  cursor: "default",
+}}>
             {/* Icon Box */}
             <div style={{
               width: "64px",
@@ -180,6 +177,7 @@ export default function Problem() {
               {pain.desc}
             </p>
           </div>
+</BorderGlow>
         ))}
       </div>
 
