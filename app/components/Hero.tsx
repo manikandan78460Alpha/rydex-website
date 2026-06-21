@@ -1,8 +1,6 @@
 "use client";
-import { useRef } from "react";
 import Aurora from "./Aurora";
 import CountUp from "./CountUp";
-import VariableProximity from "./VariableProximity";
 
 const stats = [
   { number: 5, suffix: "", label: "Role Levels" },
@@ -12,7 +10,6 @@ const stats = [
 ];
 
 export default function Hero() {
-  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <section style={{
@@ -43,7 +40,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div ref={containerRef} style={{ position: "relative", zIndex: 1, width: "100%" }}>
+      <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
 
         {/* Eyebrow Tag */}
         <div style={{
@@ -74,39 +71,24 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Main Headline with Variable Proximity */}
+        {/* Main Headline */}
         <h1 style={{
-          fontSize: "clamp(36px, 6vw, 80px)",
-          fontWeight: 700,
-          lineHeight: 1.1,
-          maxWidth: "900px",
-          margin: "0 auto 24px",
-          fontFamily: "Roboto Flex, sans-serif",
-        }}>
-          <VariableProximity
-            label="Employee Transport,"
-            containerRef={containerRef}
-            fromFontVariationSettings="'wght' 700, 'wdth' 100"
-            toFontVariationSettings="'wght' 900, 'wdth' 125"
-            radius={200}
-            falloff="gaussian"
-            style={{ color: "#F0F4FF" }}
-          />
-          {" "}
-          <VariableProximity
-            label="Finally Solved."
-            containerRef={containerRef}
-            fromFontVariationSettings="'wght' 700, 'wdth' 100"
-            toFontVariationSettings="'wght' 900, 'wdth' 125"
-            radius={200}
-            falloff="gaussian"
-            style={{
-              background: "linear-gradient(135deg, #FF6B2B, #00D4AA)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          />
-        </h1>
+  fontSize: "clamp(36px, 6vw, 80px)",
+  fontWeight: 700,
+  lineHeight: 1.1,
+  maxWidth: "900px",
+  margin: "0 auto 24px",
+  fontFamily: "Space Grotesk, sans-serif",
+}}>
+  Employee Transport,{" "}
+  <span style={{
+    background: "linear-gradient(135deg, #FF6B2B, #00D4AA)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  }}>
+    Finally Solved.
+  </span>
+</h1>
 
         {/* Subtext */}
         <p style={{
